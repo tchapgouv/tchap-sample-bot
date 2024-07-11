@@ -1,0 +1,14 @@
+*.pyc
+__pycache__
+.venv/
+.tox/
+.vscode
+.coverage
+coverage.xml
+report.xml
+node_modules/
+.idea/
+.cache/
+store/
+session.txt
+config.toml

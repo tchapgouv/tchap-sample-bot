@@ -1,0 +1,79 @@
+[project]
+name = "sample_bot"
+requires-python = ">=3.11"
+
+[tool.poetry]
+name = "sample_bot"
+version = "0.1"
+description = "Admin bot"
+authors = ["Tchap Team <tech@tchap.beta.gouv.fr>"]
+license = "MIT"
+packages = [
+    { include = "scripts" },
+]
+
+[tool.poetry.scripts]
+bot-entry-point = "scripts.adminbot:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+#tchap-bot = { path = "../tchapbot/", develop = true }
+tchap-bot = { git = "https://code.peren.fr/MatMaul/tchapbot.git", branch = "tchapadmin" }
+#tchap-bot = { git = "https://code.peren.fr/open-source/tchapbot.git", branch = "main" }
+pydantic = "^2.6.3"
+pydantic-settings = "^2.2.1"
+pyotp = "^2.9.0"
+feedparser = "^6.0.11"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.6"
+basedpyright = "^1.12.4"
+pytest = "^8.2.2"
+pytest-asyncio = "^0.23.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+pythonVersion = "3.11"
+
+typeCheckingMode = "all"
+
+reportAny = false
+reportUnknownMemberType = false
+reportMissingTypeStubs = false
+reportUnusedCallResult = false
+
+executionEnvironments = [
+  { root = "tests", reportAttributeAccessIssue = false },
+]
+
+[tool.ruff.lint]
+select = [
+"ALL"
+]
+ignore = [
+    "TD",      # TODO formatting
+    "ISC001",  # This rule conflicts with ruff formatter
+    "ANN101",  # Missing type annotation for `self` in method
+    "ANN102",  # Missing type annotation for `cls` in classmethod
+    "COM812",  # Trailing comma missing
+    "PLR2004", # Magic value used in comparison
+    "PLR0913", # Too many arguments in function definition
+
+    # TO BE FIXED !!
+    "T201",    # `print` found
+    "TRY002",  # Create your own exception
+    "BLE001",  # Do not catch blind exception
+    "S101",    # Use of `assert` detected
+    "FIX002",  # Line contains TODO, consider resolving the issue
+    "D",       # Missing docstring
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
+    "PLW0603", # Using the global statement to update variable is discouraged
+    "S105",    # Possible hardcoded password assigned
+]

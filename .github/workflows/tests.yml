@@ -1,0 +1,63 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Testing
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Poetry
+        uses: MatMaul/setup-python-poetry@v1
+        with:
+          groups: dev
+
+      - name: Run tests
+        run: poetry run pytest
+
+  lint:
+    runs-on: ubuntu-latest
+    name: Formatting and linting
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Poetry
+        uses: MatMaul/setup-python-poetry@v1
+        with:
+          groups: dev
+
+      - name: Code style (ruff)
+        run: poetry run ruff format --diff
+
+      - name: Semantic checks (ruff)
+        run: poetry run ruff check
+
+  types:
+    runs-on: ubuntu-latest
+    name: Typechecking
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Poetry
+        uses: MatMaul/setup-python-poetry@v1
+        with:
+          groups: dev
+
+      - name: Type checks
+        run: poetry run basedpyright
