@@ -13,5 +13,5 @@ docker build --target=runtime . -t matrix-bot-admin
 
 # Execute Release
 ```
-docker run --name bot-admin -v <path_to_config.toml>:/config.toml matrix-bot-admin
+docker run --name bot-admin -v <path_to_config.toml>:/data/config.toml matrix-bot-admin
 ```
