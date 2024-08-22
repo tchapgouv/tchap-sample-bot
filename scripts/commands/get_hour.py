@@ -8,7 +8,6 @@ from matrix_bot.callbacks import properly_fail
 from matrix_bot.eventparser import MessageEventParser, ignore_when_not_concerned
 
 from scripts.command import Command
-from scripts.util import get_server_name
 from typing_extensions import override
 
 class GetHourCommand(Command):
@@ -32,12 +31,10 @@ class GetHourCommand(Command):
         # il ne va répondre qu'au message "!get_hour"
         event_parser.command(self.KEYWORD)
 
-        self.server_name = get_server_name(self.matrix_client.user_id)
-
     @override
     async def execute(self) -> bool:
 
-        # il ne va répondre qu'au message "!heure"
+        # il ne va répondre qu'au message "!get_hour"
 #        self.event_parser.command("get_hour")
         heure = f"il est {datetime.datetime.now().strftime('%Hh%M')}"
         # il envoie l'information qu'il est en train d'écrire

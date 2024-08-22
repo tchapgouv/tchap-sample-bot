@@ -8,15 +8,12 @@ from matrix_bot.callbacks import properly_fail
 from matrix_bot.eventparser import MessageEventParser, ignore_when_not_concerned
 
 from scripts.command import Command
-from scripts.util import get_server_name
 from typing_extensions import override
 
 import feedparser 
 import structlog
 
 logger = structlog.getLogger(__name__)
-
-# from scripts.rssfeed import get_rss_content
 
 class GetRssCommand(Command):
     KEYWORD = "get_rss"
@@ -43,8 +40,6 @@ class GetRssCommand(Command):
             self.rssUrl = args[0]
         else:
             self.rssUrl = None
-
-        self.server_name = get_server_name(self.matrix_client.user_id)
 
     @override
     async def execute(self) -> bool:
