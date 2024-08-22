@@ -16,9 +16,13 @@ from matrix_bot.bot import MatrixBot
 from scripts.commands.get_hour import GetHourCommand
 from scripts.commands.get_rss import GetRssCommand
 
+import structlog
+
+logger = structlog.getLogger(__name__)
+
 COMMANDS: list[type[Command]] = [ResetPasswordCommand, GetHourCommand, GetRssCommand]
 
-class AdminBotConfig(BaseSettings):
+class BotConfig(BaseSettings):
     model_config = SettingsConfigDict(toml_file="config.toml")
 
     homeserver: str = "http://localhost:8008"
@@ -42,7 +46,7 @@ class AdminBotConfig(BaseSettings):
 
 
 def main() -> None:
-    config = AdminBotConfig()
+    config = BotConfig()
     bot_lib_config.allowed_room_ids = config.allowed_room_ids
     bot = ValidateBot(
         homeserver=config.homeserver,
@@ -52,13 +56,8 @@ def main() -> None:
         secure_validator=TOTPValidator(config.totps),
         coordinator=config.coordinator,
     )
+    logger.info(f"""Bot config : {config}""")
     bot.run()
-
-#  bot = MatrixBot(homeserver=config.homeserver,
-#      username=config.bot_username,
-#      password=config.bot_password)
-#  bot.callbacks.register_on_message_event(heure)
-#  bot.run()
 
 if __name__ == "__main__":
     main()
