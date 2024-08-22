@@ -89,3 +89,17 @@ Si une commande `!get_rss <args>` est saisie, elle sera à une nouvelle instance
 3. les éventuels arguments de la commande sont récupérés par `args = event_parser.command(self.KEYWORD).split()`
 4. la méthode asynchrone `execute` prend le relai et fait le traitement réel (dans notre cas, récupérer le contenu du flux RSS et le mettre en forme)
 5. la méthode `execute` finit par envoyer un message dans la room contenant le flux RS formaté, via l'appel `send_text_message`
+
+Exemples de flux RSS :
+- https://next.ink/rss
+- https://www.lemonde.fr/actualite-medias/article/2019/08/12/les-flux-rss-du-monde-fr_5498778_3236.html
+- https://www.lemonde.fr/rss/une.xml
+- https://www.lemonde.fr/politique/rss_full.xml
+- https://www.lemonde.fr/culture/rss_full.xml
+- https://www.lemonde.fr/sport/rss_full.xml
+- https://www.lemonde.fr/pixels/rss_full.xml
+- https://www.lefigaro.fr/rss/figaro_actualites.xml
+- https://www.lefigaro.fr/rss/figaro_politique.xml
+- https://www.lefigaro.fr/rss/figaro_elections.xml
+- https://www.lefigaro.fr/rss/figaro_international.xml
+- https://www.lefigaro.fr/rss/figaro_culture.xml
