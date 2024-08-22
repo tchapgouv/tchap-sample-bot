@@ -1,5 +1,7 @@
 Ce projet est basé sur le Tchap `matrix-admin-bot` : https://github.com/tchapgouv/matrix-admin-bot
 
+Il nécessite l'installation de Docker sur la machine qui hébergera le bot : https://www.docker.com/
+
 # Configuration de l'environnement
 
 - Python 3.11+ est requis
