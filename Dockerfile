@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION=3.11
 
-FROM python:${PYTHON_VERSION}-bookworm as builder
+FROM python:${PYTHON_VERSION}-bookworm AS builder
 
 ENV POETRY_VERSION=1.8.3
 
@@ -18,7 +18,7 @@ COPY scripts ./scripts
 
 RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --compile
 
-FROM python:${PYTHON_VERSION}-slim-bookworm as runtime
+FROM python:${PYTHON_VERSION}-slim-bookworm AS runtime
 
 COPY --from=builder /app /app
 
