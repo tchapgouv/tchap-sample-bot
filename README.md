@@ -42,6 +42,7 @@ Le projet utilise `Poetry`, un gestionnaire de dépendances pour Python : https:
 - `Dockerfile` : le script de création du conntainer Docker du bot
 - `config.toml` : le fichier des paramètres de connexion du bot (non gitté)
 - `pyproject.toml` : le fichier de dépendances du projet, utilisé par Poetry lors de la construction de l'image Docker
+- `scripts/commands` : le dossier contenant les implémentations des commandes supportées par le bot
 
 ## Démarrage du bot
 Le fichier `pyproject.toml` définit le point d'entrée du programme à : `scripts.startbot:main`
@@ -59,7 +60,7 @@ Dans cet exemple :
 - `get_hour` : le bot renvoie l'heure actuelle avec la commande `!get_hour`
 - `get_rss` : le bot renvoit un flux RSS formaté avec la commande `!get_rss <URL du flux RSS souhaité>`
 
-## La commande `get_rss`
+# La commande `get_rss`
 Elle est implementée dans le fichier `scripts/commands/get_rss.py` par la classe `GetHourCommand`.
 
 La variable `KEYWORD` contient le nom de la commande (qui sera préfixée par `!` pour être reconnue comme une commande).
