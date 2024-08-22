@@ -1,5 +1,7 @@
 Ce projet est basé sur le Tchap `matrix-admin-bot` : https://github.com/tchapgouv/matrix-admin-bot
 
+Ce projet `matrix-admin-bot` est lui-même basé sur https://code.peren.fr/open-source/tchapbot qui gère le chiffrement dans Tchap.
+
 Il nécessite l'installation de Docker sur la machine qui hébergera le bot : https://www.docker.com/
 
 # Configuration de l'environnement
@@ -14,6 +16,8 @@ poetry install
 ```
 
 # Le fichier `config.toml`
+
+Le compte utilisateur utilisé par le bot doit être créé manuellement (via Tchap web par exemple) comme un compte utilisateur classique (avec un email dédié et autorisé donc).
 
 Il est nécessaire de créer un fichier `config.toml` contenant les informations de connexion de votre bot.
 Ce fichier contenant des informations sensibles, il n'est pas gitté.
