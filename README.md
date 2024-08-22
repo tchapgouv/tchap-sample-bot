@@ -75,6 +75,6 @@ Si une commande `!get_rss <args>` est saisie, elle sera à une nouvelle instance
 
 1. un `MessageEventParser` est créé à l'instanciation pour ce client dans cette room, pour le message qui vient d'être reçu
 2. si le message est envoyé par le bot, il est ignoré par la commande `do_not_accept_own_message`
-3. les éventuels arguemnts de la commande sont récupérés par `args = event_parser.command(self.KEYWORD).split()`
+3. les éventuels arguments de la commande sont récupérés par `args = event_parser.command(self.KEYWORD).split()`
 4. la méthode asynchrone `execute` prend le relai et fait le traitement réel (dans notre cas, récupérer le contenu du flux RSS et le mettre en forme)
 5. la méthode `execute` finit par envoyer un message dans la room contenant le flux RS formaté, via l'appel `send_text_message`
