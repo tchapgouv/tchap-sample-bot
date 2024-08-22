@@ -20,12 +20,19 @@ poetry install
 Le compte utilisateur utilisé par le bot doit être créé manuellement (via Tchap web par exemple) comme un compte utilisateur classique (avec un email dédié et autorisé donc).
 
 Il est nécessaire de créer un fichier `config.toml` contenant les informations de connexion de votre bot.
+
+Ce fichier peut aussi contenir une liste de MatrixID de salons dans lesquels le bot est autorisé d'agir. Il est recommandé de renseigner cette liste pour restreindre le champ d'action du bot.
+
 Ce fichier contenant des informations sensibles, il n'est pas gitté.
 ```
 homeserver = "<your matrix server https://matrix.…>"
 
 bot_username = "<your username someone@beta.gouv.fr>"
 bot_password = "<your password>"
+
+allowed_room_ids = [
+    "<matrix-id-of-allowed-room#1>",
+]
 ```
 
 # Construire l'image du container Docker
