@@ -41,10 +41,15 @@ docker build --target=runtime --tag tchap-sample-bot .
 ```
 
 # Démarrer le container Docker
-L'option `--rm` supprime le container à la fin de l'exécution.
+
 L'option `--env PYTHONBUFFERED=1` permet d'avoir les sorties de python dans la console.
 ```
-docker run --rm --env PYTHONBUFFERED=1 --volume <path-to-your-local-config-file>:/data/config.toml tchap-sample-bot
+docker run --env PYTHONBUFFERED=1 --volume <path-to-your-local-config-file>:/data/config.toml tchap-sample-bot
+```
+
+L'option `--rm` supprime le container à la fin de l'exécution. Attention, car cette option supprimera aussi la session en cours du Bot (car le stockage des données du Bot disparaîtront avec le container). Il créera donc systématiquement une nouvelle session lors du prochain lancement. Il est possible de stocker ces données en dehors du container via l'option `--volume`, mais cela expose des donnés sensibles.
+```
+docker run -rm --env PYTHONBUFFERED=1 --volume <path-to-your-local-config-file>:/data/config.toml tchap-sample-bot
 ```
 
 # Structure du projet
