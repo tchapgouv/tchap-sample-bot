@@ -23,7 +23,7 @@ C'est un compte utilisateur classique (associé à une adresse email), soumis au
 - ce qui peut être fait ou configuré sur un compte utilisateur classique peut donc être fait sur un compte bot
 - ce qui ne peut pas être fait avec un compte utilisateur classique ne peut pas être fait par un compte bot non plus
 
-**Un compte pour bot est donc soumis à la procédure de renouvellement périodique de compte via email.**
+**Un compte pour bot est donc soumis à la procédure de renouvellement périodique de compte via email. La notion de "compte de service" n'existe pas actuellement sur Tchap .**
 
 # Le fichier `config.toml`
 
