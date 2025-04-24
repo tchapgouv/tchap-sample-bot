@@ -15,9 +15,17 @@ python install poetry
 poetry install
 ```
 
-# Le fichier `config.toml`
+# Le compte utilisateur du bot
 
 Le compte utilisateur utilisé par le bot doit être créé manuellement (via Tchap web par exemple) comme un compte utilisateur classique (avec un email dédié et autorisé donc).
+
+C'est un compte utilisateur classique (associé à une adresse email), soumis aux mêmes possibilités et contraintes que tout autre compte utilisateur :
+- ce qui peut être fait ou configuré sur un compte utilisateur classique peut donc être fait sur un compte bot
+- ce qui ne peut pas être fait avec un compte utilisateur classique ne peut pas être fait par un compte bot non plus
+
+**Un compte pour bot est donc soumis à la procédure de renouvellement périodique de compte via email.**
+
+# Le fichier `config.toml`
 
 Il est nécessaire de créer un fichier `config.toml` contenant les informations de connexion de votre bot.
 
